@@ -1,0 +1,47 @@
+export ZOPEN_GIT_URL="https://github.com/charmbracelet/gum"
+export ZOPEN_GIT_DEPS="comp_go wharf"
+export ZOPEN_TYPE="GIT"
+export ZOPEN_COMP="GO"
+
+export ZOPEN_CONFIGURE="zopen_wharf"
+export ZOPEN_CONFIGURE_MINIMAL=1
+export ZOPEN_MAKE="go"
+export ZOPEN_MAKE_OPTS="build"
+export ZOPEN_MAKE_MINIMAL=1
+export ZOPEN_INSTALL="zopen_install"
+export ZOPEN_CHECK="skip"
+export ZOPEN_CLEAN="zopen_clean"
+
+zopen_init()
+{
+  # Go installs binaries, so create the bin dir as well
+  export GOBIN=$ZOPEN_INSTALL_DIR/bin
+  mkdir -p \$ZOPEN_INSTALL_DIR/bin
+  unset CC CXX
+  export PATH=$PATH:$GOROOT/go-build-zos/bin
+}
+
+zopen_wharf()
+{
+  cd ..
+  go work init
+  go work use ./gum
+  wharf ./gum
+  cd ./gum
+}
+
+zopen_install()
+{
+  go install
+}
+
+zopen_clean()
+{
+  rm -rf ../.wharf_cache ../go.work* ../wharf_port
+}
+
+zopen_get_version()
+{
+  # Unable to determine version number from "gum -v"
+  echo "0.10.0"
+}
