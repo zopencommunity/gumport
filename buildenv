@@ -1,5 +1,5 @@
 export ZOPEN_GIT_URL="https://github.com/charmbracelet/gum"
-export ZOPEN_GIT_DEPS="comp_go wharf"
+export ZOPEN_GIT_DEPS="comp_go wharf termenv"
 export ZOPEN_TYPE="GIT"
 export ZOPEN_COMP="GO"
 
