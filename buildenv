@@ -39,7 +39,7 @@ zopen_wharf()
 
 zopen_install()
 {
-  go install
+  go install -ldflags="-X 'main.Version=${GUM_VERSION}'"
 }
 
 zopen_clean()
