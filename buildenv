@@ -31,6 +31,9 @@ zopen_wharf()
 {
   cd ..
   git clone https://github.com/charmbracelet/bubbletea.git
+  cd ./bubbletea
+  git apply ../bubbletea-patches/tea.go.patch
+  cd ..
 
   go work init ./gum ./bubbletea
   wharf ./gum/...
