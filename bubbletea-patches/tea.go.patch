@@ -1,0 +1,26 @@
+diff --git a/tea.go b/tea.go
+index f18cb87..c0df239 100644
+--- a/tea.go
++++ b/tea.go
+@@ -16,6 +16,7 @@ import (
+ 	"io"
+ 	"os"
+ 	"os/signal"
++	"runtime"
+ 	"runtime/debug"
+ 	"sync"
+ 	"sync/atomic"
+@@ -448,6 +449,13 @@ func (p *Program) Run() (Model, error) {
+ 		if err != nil {
+ 			return p.initialModel, err
+ 		}
++		if runtime.GOOS == "zos" {
++			// Set auto convert on /dev/tty fd for z/OS.
++			// /dev/tty is EBCDIC by default and will send EBCDIC
++			// key strokes to the program if not converted.
++			fd := int(f.Fd())
++			runtime.SetZosAutoConvOnFd(fd, 1047)
++		}
+ 		defer f.Close() //nolint:errcheck
+ 		p.input = f
+ 
