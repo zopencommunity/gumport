@@ -2,6 +2,7 @@
 GUM_VERSION="0.13.0"
 
 export ZOPEN_STABLE_URL="https://github.com/charmbracelet/gum.git"
+export ZOPEN_CATEGORIES="utilities"
 export ZOPEN_STABLE_DEPS="comp_go wharf"
 export ZOPEN_STABLE_TAG="v${GUM_VERSION}"
 export ZOPEN_DEV_URL="https://github.com/charmbracelet/gum.git"
