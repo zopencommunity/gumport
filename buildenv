@@ -1,5 +1,5 @@
 # bump: gum-version /GUM_VERSION="(.*)"/ https://github.com/charmbracelet/gum.git|semver:*
-GUM_VERSION="0.13.0"
+GUM_VERSION="0.15.0"
 
 export ZOPEN_STABLE_URL="https://github.com/charmbracelet/gum.git"
 export ZOPEN_CATEGORIES="utilities"
