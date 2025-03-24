@@ -1,16 +1,8 @@
 diff --git a/tea.go b/tea.go
-index f18cb87..c0df239 100644
+index 0bc915e..6216b6f 100644
 --- a/tea.go
 +++ b/tea.go
-@@ -16,6 +16,7 @@ import (
- 	"io"
- 	"os"
- 	"os/signal"
-+	"runtime"
- 	"runtime/debug"
- 	"sync"
- 	"sync/atomic"
-@@ -448,6 +449,13 @@ func (p *Program) Run() (Model, error) {
+@@ -554,6 +554,13 @@ func (p *Program) Run() (Model, error) {
  		if err != nil {
  			return p.initialModel, err
  		}
