@@ -18,7 +18,6 @@ export ZOPEN_MAKE_MINIMAL=1
 export ZOPEN_INSTALL="zopen_install"
 export ZOPEN_CHECK="skip"
 export ZOPEN_CLEAN="zopen_clean"
-export ZOPEN_POST_EXTRACT="chtag -tc 819"
 
 zopen_init()
 {
